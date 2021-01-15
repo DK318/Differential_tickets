@@ -783,43 +783,43 @@
 \end{equation}
 называется \textbf{однородной}, в противном случае \textbf{неоднородной}.\\
 
-\noindent \textbf{Определение.} \textbf{Определителем Вронского (вронскианом)} вектор-функций $\{r_k\}_{k=1}^n$, где $r_k=(x_{k1}, x_{k2}, \cdots, x_{kn})^T$, называют определитель
+\noindent \textbf{Определение.} \textbf{Определителем Вронского (вронскианом)} вектор-функций $\{r_k\}_{k=1}^n$, где $r_k=(x_{k1}, x_{k2}, \ldots, x_{kn})^T$, называют определитель
 \begin{equation*}
-    W(t) = det(r_1(t),r_2(t),\cdots, r_n(t)) = \begin{vmatrix}
-    x_{11}(t) & x_{21}(t) & \cdots & x_{n1}(t)\\
-    x_{12}(t) & x_{22}(t) & \cdots & x_{n2}(t)\\
-    \cdots\\
-    x_{1n}(t) & x_{2n}(t) & \cdots & x_{nn}(t)
+    W(t) = det(r_1(t),r_2(t),\ldots, r_n(t)) = \begin{vmatrix}
+    x_{11}(t) & x_{21}(t) & \ldots & x_{n1}(t)\\
+    x_{12}(t) & x_{22}(t) & \ldots & x_{n2}(t)\\
+    \ldots\\
+    x_{1n}(t) & x_{2n}(t) & \ldots & x_{nn}(t)
     \end{vmatrix}
 \end{equation*}
 \\
-\noindent \textbf{Теорема (формула Остроградского-Лиувилля для решений ЛОС).} Пусть $t, t_0 \in (a,b)$, $P \in M_n(C(a,b))$, $r_1, r_2, \cdots, r_n$ --- решения системы (\ref{losu}). Тогда их вронскиан
+\noindent \textbf{Теорема (формула Остроградского-Лиувилля для решений ЛОС).} Пусть $t, t_0 \in (a,b)$, $P \in M_n(C(a,b))$, $r_1, r_2, \ldots, r_n$ --- решения системы (\ref{losu}). Тогда их вронскиан
 \begin{equation*}
     W(t) = W(t_0)\exp \int_{t_0}^t trP(\tau)d\tau
 \end{equation*}
-\textbf{Доказательство.} Пусть $X$ --- матрица со столбцами $r_1, r_2, \cdots, r_n$, а $R_k$ --- ее $k$-ая строка. Используя формулу полного разложения определителя, нетрудно убедиться, что
+\textbf{Доказательство.} Пусть $X$ --- матрица со столбцами $r_1, r_2, \ldots, r_n$, а $R_k$ --- ее $k$-ая строка. Используя формулу полного разложения определителя, нетрудно убедиться, что
 \begin{equation*}
     \dot{W} = det\begin{pmatrix}
     \dot{R}_1\\
     R_2\\
-    \cdots\\
+    \ldots\\
     R_n
     \end{pmatrix} + det\begin{pmatrix}
     R_1\\
     \dot{R}_2\\
-    \cdots\\
+    \ldots\\
     R_n
-    \end{pmatrix} + \cdots + det\begin{pmatrix}
+    \end{pmatrix} + \ldots + det\begin{pmatrix}
     R_1\\
     R_2\\
-    \cdots\\
+    \ldots\\
     \dot{R}_n
     \end{pmatrix}
 \end{equation*}
 
 Так как
 \begin{equation*}
-    \dot{X} = (\dot{r}_1, \dot{r}_2, \cdots, \dot{r}_n) = (Pr_1, Pr_2, \cdots, Pr_n) = PX
+    \dot{X} = (\dot{r}_1, \dot{r}_2, \ldots, \dot{r}_n) = (Pr_1, Pr_2, \ldots, Pr_n) = PX
 \end{equation*}
 то $k$-ая строка матрицы $\dot{X}$ совпадает с $k$-ой строкой матрицы $PX$, то есть
 \begin{equation*}
@@ -832,17 +832,17 @@
     \dot{W} = p_{11}det\begin{pmatrix}
     R_1\\
     R_2\\
-    \cdots\\
+    \ldots\\
     R_n
     \end{pmatrix} + p_{22}det\begin{pmatrix}
     R_1\\
     R_2\\
-    \cdots\\
+    \ldots\\
     R_n
-    \end{pmatrix} + \cdots + p_{nn}det\begin{pmatrix}
+    \end{pmatrix} + \ldots + p_{nn}det\begin{pmatrix}
     R_1\\
     R_2\\
-    \cdots\\
+    \ldots\\
     R_n
     \end{pmatrix} = W\,trP
 \end{equation*}
@@ -851,11 +851,11 @@
 \section{Билет №16. Общее решение ЛОС. Лемма о множестве фундаментальных матриц. Лемма об овеществлении.}
 \textbf{Теорема (Общее решение ЛОС).} Пусть $P \in M_n(C(a,b))$. Тогда множество решений системы $\dot{r} = P(t)r$ образуют $n$-мерное линейное пространство.\\
 
-\noindent \textbf{Доказательство.} Пусть $t_0 \in (a,b)$, $\{a_k\}_{k=1}^n$ --- базис в $\mathbb{R}^n$. Тогда для любого $k \in [1 : n]$ существует $r_k$ --- решение задачи Коши $\dot{r} = P(t)r,\, r(t_0) = a_k$. Вронскиан этих решений $W(t_0) = det(a_1, a_2, \cdots, a_n) \neq 0$. Тогда функции $\{r_k\}_{k=1}^n$ линейно независимы.
+\noindent \textbf{Доказательство.} Пусть $t_0 \in (a,b)$, $\{a_k\}_{k=1}^n$ --- базис в $\mathbb{R}^n$. Тогда для любого $k \in [1 : n]$ существует $r_k$ --- решение задачи Коши $\dot{r} = P(t)r,\, r(t_0) = a_k$. Вронскиан этих решений $W(t_0) = det(a_1, a_2, \ldots, a_n) \neq 0$. Тогда функции $\{r_k\}_{k=1}^n$ линейно независимы.
 
 Рассмотрим произвольное решение $r$ системы $\dot{r} = P(t)r$. Пусть $\{c_k\}_{k=1}^n$ --- координаты вектора $r(t_0)$ в базисе $\{a_k\}_{k=1}^n$. Положим
 \begin{equation*}
-    \varphi = c_1r_1 + c_2r_2 + \cdots + c_nr_n
+    \varphi = c_1r_1 + c_2r_2 + \ldots + c_nr_n
 \end{equation*}
 Ясно, что $\varphi$ --- решение системы $\dot{r} = P(t)r$, при этом $\varphi(t_0) = r_0$. Тогда $r \equiv \varphi$ в силу теоремы о единственности максимального решения ЛС.
 
@@ -871,9 +871,9 @@
 
 Обратно, пусть $A \in M_n(\mathbb{R})$ --- произвольная невырожденная матрица. Тогда матрица $\Phi A$ состоит из решений, а ее определитель не обращается в ноль. Следовательно, эти решения линейно независимы, поэтому $\Phi A$ --- фундаментальная матрица.\\
 
-\noindent \textbf{Лемма (Об овеществлении).} Пусть $n \in \mathbb{N}$, $\Phi = (r_1,r_2,r_3,\cdots,r_n)$ --- фундаментальная матрица системы $\dot{r} = P(t)r$, при этом $r_1 = \overline{r}_2$. Тогда
+\noindent \textbf{Лемма (Об овеществлении).} Пусть $n \in \mathbb{N}$, $\Phi = (r_1,r_2,r_3,\ldots,r_n)$ --- фундаментальная матрица системы $\dot{r} = P(t)r$, при этом $r_1 = \overline{r}_2$. Тогда
 \begin{equation*}
-    \Psi = (Re\,r_1, Im\,r_1, r_3, \cdots, r_n)
+    \Psi = (Re\,r_1, Im\,r_1, r_3, \ldots, r_n)
 \end{equation*}
 --- фундаментальная матрица той же системы.\\
 
@@ -903,13 +903,13 @@
 \end{equation}
 где $A \in M_n(\mathbb{C})$, $q \in C((a,b) \to \mathbb{C}^n)$.\\
 
-\noindent \textbf{Лемма.} Пусть $n, k \in \mathbb{N}$, $A \in M_n(\mathbb{C})$, $h_1, h_2, \cdots, h_k$ --- жорданова цепочка, соответствующая $\lambda \in spec\, A$. Тогда функции
+\noindent \textbf{Лемма.} Пусть $n, k \in \mathbb{N}$, $A \in M_n(\mathbb{C})$, $h_1, h_2, \ldots, h_k$ --- жорданова цепочка, соответствующая $\lambda \in spec\, A$. Тогда функции
 \begin{equation*}
     \begin{aligned}
         &\varphi_1(t) = e^{\lambda t}h_1\\
         &\varphi_2(t) = e^{\lambda t}\left(\frac{t}{1!}h_1 + h_2\right)\\
-        &\cdots\\
-        &\varphi_k(t) = e^{\lambda t}\left(\frac{t^{k-1}}{(k-1)!}h_1 + \cdots + \frac{t}{1!}h_{k-1} + h_k\right)
+        &\ldots\\
+        &\varphi_k(t) = e^{\lambda t}\left(\frac{t^{k-1}}{(k-1)!}h_1 + \ldots + \frac{t}{1!}h_{k-1} + h_k\right)
     \end{aligned}
 \end{equation*}
 являются решениями системы $\dot{r} = Ar$.\\
@@ -927,30 +927,30 @@
 \noindent \textbf{Теорема (Случай жорданова базиса общего вида).} Пусть $A \in M_n(\mathbb{C})$, базис пространства $\mathbb{C}^n$ состоит из жордановых цепочек
 \begin{equation*}
     \begin{aligned}
-        &\lambda_1 \sim h_1, h_2, \cdots, h_k\\
-        &\cdots\\
-        &\lambda_d \sim u_1, u_2, \cdots, u_m
+        &\lambda_1 \sim h_1, h_2, \ldots, h_k\\
+        &\ldots\\
+        &\lambda_d \sim u_1, u_2, \ldots, u_m
     \end{aligned}
 \end{equation*}
-соответствующих $\lambda_1, \cdots, \lambda_d \in spec\, A$. Тогда вектор-функции
+соответствующих $\lambda_1, \ldots, \lambda_d \in spec\, A$. Тогда вектор-функции
 \begin{equation*}
     \begin{aligned}
-        &\varphi_1(t) = e^{\lambda_1 t}h_1, \quad \cdots, \quad \varphi_k(t) = e^{\lambda_1 t}\left(\frac{t^{k-1}}{(k-1)!}h_1 + \cdots + \frac{t}{1!}h_{k-1} + h_k \right)\\
-        &\cdots\\
-        &\psi_1(t) = e^{\lambda_d t}u_1, \quad \cdots, \quad \psi_m(t) = e^{\lambda_d t}\left(\frac{t^{m-1}}{(m-1)!}u_1 + \cdots + \frac{t}{1!}u_{m-1} + u_m \right)
+        &\varphi_1(t) = e^{\lambda_1 t}h_1, \quad \ldots, \quad \varphi_k(t) = e^{\lambda_1 t}\left(\frac{t^{k-1}}{(k-1)!}h_1 + \ldots + \frac{t}{1!}h_{k-1} + h_k \right)\\
+        &\ldots\\
+        &\psi_1(t) = e^{\lambda_d t}u_1, \quad \ldots, \quad \psi_m(t) = e^{\lambda_d t}\left(\frac{t^{m-1}}{(m-1)!}u_1 + \ldots + \frac{t}{1!}u_{m-1} + u_m \right)
     \end{aligned}
 \end{equation*}
 образуют фундаментальную систему решений системы $\dot{r} = Ar$.\\
 
 \noindent \textbf{Доказательство.} По вышедоказанной лемме каждая из вектор-функций
 \begin{equation*}
-    \varphi_1, \cdots, \varphi_k, \cdots, \psi_1, \cdots, \psi_m
+    \varphi_1, \ldots, \varphi_k, \ldots, \psi_1, \ldots, \psi_m
 \end{equation*}
 является решением. Их вронскиан
 \begin{equation*}
-    W(0) = det(h_1, \cdots, h_k, \cdots, u_1, \cdots, u_m) \neq 0
+    W(0) = det(h_1, \ldots, h_k, \ldots, u_1, \ldots, u_m) \neq 0
 \end{equation*}
-Тогда вектор-функции $\{\varphi_1, \cdots, \varphi_k, \cdots, \psi_1, \cdots, \psi_m\}$ линейно независимы, а значит, образуют фундаментальную систему решений.\\
+Тогда вектор-функции $\{\varphi_1, \ldots, \varphi_k, \ldots, \psi_1, \ldots, \psi_m\}$ линейно независимы, а значит, образуют фундаментальную систему решений.\\
 
 \noindent \textbf{Определение.} \textbf{Матричной экспонентой} называется сумма ряда
 \begin{equation*}
@@ -963,25 +963,25 @@
     \item если $AB = BA$, то $e^{A+B} = e^{A}e^{B}$
     \item $\frac{d}{dt}e^{At} = Ae^{At}$
     \item если $A = TJT^{-1}$, то $e^A = Te^JT^{-1}$
-    \item если $A = diag(A_1, A_2, \cdots, A_d)$, то $e^A = diag(e^{A_1}, e^{A_2}, \cdots, e^{A_d})$
+    \item если $A = diag(A_1, A_2, \ldots, A_d)$, то $e^A = diag(e^{A_1}, e^{A_2}, \ldots, e^{A_d})$
     \item если $J_s(\lambda)$ --- жорданова клетка размера $s$:
     \begin{equation*}
         J_s(\lambda) = \begin{pmatrix}
-            \lambda & 1 & 0 & \cdots & 0\\
-            0 & \lambda & 1 & \cdots & 0\\
-            0 & 0 & \lambda & \cdots & 0\\
-            \cdots\\
-            0 & 0 & 0 & \cdots & \lambda
+            \lambda & 1 & 0 & \ldots & 0\\
+            0 & \lambda & 1 & \ldots & 0\\
+            0 & 0 & \lambda & \ldots & 0\\
+            \ldots\\
+            0 & 0 & 0 & \ldots & \lambda
         \end{pmatrix}
     \end{equation*}
     то
     \begin{equation*}
         e^{J_s(\lambda)t} = \begin{pmatrix}
-        1 & t & \frac{t^2}{2!} & \cdots & \frac{t^{s-1}}{(s-1)!}\\
-        0 & 1 & t & \cdots & \frac{t^{s-2}}{(s-2)!}\\
-        0 & 0 & 1 & \cdots & \frac{t^{s-3}}{(s-3)!}\\
-        \cdots\\
-        0 & 0 & 0 & \cdots & 1
+        1 & t & \frac{t^2}{2!} & \ldots & \frac{t^{s-1}}{(s-1)!}\\
+        0 & 1 & t & \ldots & \frac{t^{s-2}}{(s-2)!}\\
+        0 & 0 & 1 & \ldots & \frac{t^{s-3}}{(s-3)!}\\
+        \ldots\\
+        0 & 0 & 0 & \ldots & 1
         \end{pmatrix}
     \end{equation*}
 \end{enumerate}
@@ -1051,4 +1051,123 @@ $\Phi$ --- фундаментальная матрица системы
     \dot{\Phi}\int \Phi^{-1}q + \Phi\Phi^{-1}q = P(t)\Phi \int \Phi^{-1}q + q
 \end{equation*}
 Это верное тождество, поскольку $P(t)\Phi = \dot{\Phi}$.
+
+\section{Билет №19. Теорема об изоморфизме решений ЛОС и ЛОУ, формула Остроградского–Лиувилля для решений ЛОУ. Метод вариации постоянных для ЛНУ.}
+\textbf{Определение.} \textbf{Линейным дифференциальным уравнением} порядка $n$ называется уравнение вида
+\begin{equation}
+    y^{(n)} + p_{n-1}(t)y^{(n - 1)} + \ldots + p_1(t)\dot{y} + p_0(t)y = q(t) \label{lndu}
+\end{equation}
+где $p_0, p_1, \ldots, p_{n-1}, q \in C(a,b)$.\\
+
+\noindent \textbf{Определение.} Если $q \equiv 0$ на $(a,b)$, то уравнение (\ref{lndu}), то есть
+\begin{equation}
+    y^{(n)} + p_{n-1}(t)y^{(n - 1)} + \ldots + p_1(t)\dot{y} + p_0(t)y = 0 \label{lnou}
+\end{equation}
+называется \textbf{однородным}, в противном случае --- \textbf{неоднородным}.\\
+
+\noindent \textbf{Лемма (О равносильной ЛС).} Если функция $y$ --- решение уравнения (\ref{lndu}) на $(a,b)$, то вектор-функция $\Lambda_n y = (y, \dot{y}, \ldots, y^{(n-1)})$ --- решение системы
+\begin{equation}
+    \dot{r} = P(t)r + Q(t) \label{ravn}
+\end{equation}
+где
+\begin{equation*}
+    P = \begin{pmatrix}
+    0 & 1 & 0 & \ldots & 0\\
+    0 & 0 & 1 & \ldots & 0\\
+    \ldots\\
+    0 & 0 & 0 & \ldots & 1\\
+    -p_0 & -p_1 & -p_2 & \ldots & -p_{n - 1}
+    \end{pmatrix}, \quad Q = \begin{pmatrix}
+    0\\
+    0\\
+    \ldots\\
+    0\\
+    q
+    \end{pmatrix}
+\end{equation*}
+
+И наоборот, если $r = (y_1, y_2, \ldots, y_n)$ --- решение системы (\ref{ravn}), то $y_1$ --- решение (\ref{lndu}) на $(a,b)$ и $r = \Lambda_n y_1$.\\
+
+\noindent \textbf{Теорема (Об изоморфизме).} Пусть $p_0, p_1, \ldots, p_{n-1} \in C(a,b)$. Тогда множество решений однородного уравнения (\ref{lnou}) является линейным пространством, изоморфным пространству решений системы
+\begin{equation}
+    \dot{y} = P(t)y \label{izomorf}
+\end{equation}
+где матрица $P$ та же, что и в лемме о равносильной ЛС. При этом изоморфизм устанавливается отображением $\Lambda_n$.\\
+
+\noindent \textbf{Доказательство.} Любое решение уравнения (\ref{lnou}) по теореме о существовании и единственности максимального решения ЛУ является элементом линейного пространства $C^n(a,b)$. Кроме того, сумма двух решений, а также решение, умноженное на произвольное число, также являются решениями. Поэтому множество всех решений само образует линейное пространство.
+
+Лемма о равносильной ЛС устанавливает биекцию между решениями уравнения и равносильной системы. Отображение $\Lambda_n$ линейно. Таким образом, $\Lambda_n$ --- изоморфизм.\\
+
+\noindent \textbf{Определение.} \textbf{Определителем Вронского} (или \textbf{вронскианом}) функций $y_1, y_2, \ldots, y_n \in C^{n-1}(a,b)$ называют
+\begin{equation*}
+    W(t) = \begin{vmatrix}
+    y_1(t) & y_2(t) & \ldots & y_n(t)\\
+    \dot{y}_1(t) & \dot{y}_2(t) & \ldots & \dot{y}_n(t)\\
+    \ldots\\
+    y_1^{(n-1)}(t) & y_2^{(n-1)}(t) & \ldots & y_n^{(n-1)}(t)
+    \end{vmatrix}
+\end{equation*}
+
+\noindent \textbf{Теорема (Формула Остроградского-Лиувилля для решений ЛОУ).} Пусть $t, t_0 \in (a,b)$, $p_0, p_1, \ldots, p_{n-1} \in C(a,b)$, $\{y_k\}_{k=1}^n$ --- решения линейного однородного уравнения (\ref{lnou}). Тогда вронскиан этих решений
+\begin{equation*}
+    W(t) = W(t_0)\exp \int_{t_0}^t (-p_{n-1}(\tau))d\tau
+\end{equation*}
+\textbf{Доказательство.} Принимая во внимание формулу Остроградского-Лиувилля для решений ЛОС и лемму о равносильной ЛС, находим
+\begin{equation*}
+    \begin{aligned}
+        &W(y_1,\ldots, y_n) = W(\Lambda y_1,\ldots, \Lambda y_n) =\\
+        &= W(t_0)\exp \int_{t_0}^t tr\,P(\tau)d\tau = W(t_0)\exp \int_{t_0}^t (-p_{n-1}(\tau))d\tau 
+    \end{aligned}
+\end{equation*}
+
+\noindent \textbf{Теорема (метод вариации постоянных для ЛНУ).} Пусть $\{y_k\}_{k=1}^n$ --- фундаментальная система решений однородного уравнения (\ref{lnou}). Тогда если функции $\{C_k\}$ пробегают все решения системы
+\begin{equation*}
+    \begin{pmatrix}
+    y_1 & y_2 & \ldots & y_n\\
+    \dot{y}_1 & \dot{y}_2 & \ldots & \dot{y}_n\\
+    \ldots\\
+    y_1^{(n-2)} & y_2^{(n-2)} & \ldots & y_n^{(n-2)}\\
+    y_1^{(n-1)} & y_2^{(n-1)} & \ldots & y_n^{(n-1)}
+    \end{pmatrix}
+    \begin{pmatrix}
+    \dot{C}_{1}\\
+    \dot{C}_{2}\\
+    \ldots\\
+    \dot{C}_{n-1}\\
+    \dot{C}_{n}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    0\\
+    0\\
+    \ldots\\
+    0\\
+    q
+    \end{pmatrix}
+\end{equation*}
+то $y = \displaystyle\sum_{k = 1}^n C_ky_k$ пробегает все решения уравнения (\ref{lndu}).\\
+
+\noindent \textbf{Доказательство.} По теореме о методе вариации постоянных для ЛС общее решение системы, равносильной уравнению (\ref{lndu}), имеет вид
+\begin{equation*}
+    r = \sum_{k=1}^n C_k \Lambda y_k
+\end{equation*}
+где функции $C_1, \ldots, C_n$ удовлетворяют системе
+\begin{equation*}
+    (\Lambda y_1, \ldots, \Lambda y_n)
+    \begin{pmatrix}
+    \dot{C}_{1}\\
+    \ldots\\
+    \dot{C}_{n-1}\\
+    \dot{C}_{n}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    0\\
+    \ldots\\
+    0\\
+    q
+    \end{pmatrix}
+\end{equation*}
+
+По лемме о равносильной ЛС первая строка вектора $r$ --- общее решение уравнения (\ref{lndu}).
 \end{document}
