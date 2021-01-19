@@ -241,7 +241,7 @@
 
 Докажем обратное. Пусть $\varphi$ --- решение (\ref{inteq}) на $[a,b]$. Тогда из равенства
 \begin{equation}
-    \varphi(t) = r_0 + \int_{t_0}^{t} f(\tau, r(\tau))d\tau \label{phieq}
+    \varphi(t) = r_0 + \int_{t_0}^{t} f(\tau, \varphi(\tau))d\tau \label{phieq}
 \end{equation}
 следует, что $\varphi \in C^1[a,b]$. Дифференцируя (\ref{phieq}) по $t$, получаем $\dot{\varphi} \equiv f(t, \varphi(t))$ на $[a,b]$. Кроме того, из (\ref{phieq}) вытекает $\varphi(t_0) = r_0$. Таким образом, $\varphi$ --- решение (\ref{zksyst}) по определению.\\
 
