@@ -1,0 +1,29 @@
+\textbf{Лемма.} Пусть $G \subset \mathbb{R}_{t,r}^{n+1}$ --- область, $f \in C(G \to \mathbb{R}^n)\cap Lip_{r,loc}(G)$, $K \subset G$ --- компакт. Тогда $f \in Lip_r(K)$\\
+\noindent \textbf{Доказательство.} Докажем методом от противного. Пусть $f \notin Lip_r(K)$. Тогда для любого $N \in \mathbb{N}$ найдется пара точек $(t_N,r_N), (t_N, \widetilde{r}_N) \in K$, для которых верно неравенство
+\begin{equation}
+    |f(t_N, r_N) - f(t_N, \widetilde{r}_N)| > N|r_N - \widetilde{r}_N| \label{badlip}
+\end{equation}
+
+Поскольку $K$ --- компакт, то из последовательности $\{(t_N, r_N)\}$ можно выбрать подпоследовательность с номерами $\{N_m\}$, сходящуюся к некоторой точке $(t,r) \in K$. Аналогично можно сделать для $\{t_N, \widetilde{r}_N\}$. Далее считаем, что исходная последовательность совпадает с выбранной подпоследовательностью.
+
+Возможны два случая: $r = \widetilde{r}$ и $r \neq \widetilde{r}$.
+\begin{enumerate}
+    \item $r = \widetilde{r}$. По условию $f \in Lip_{r,loc}(G)$, значит, найдется окрестность $U$ точки $(t,r)$, в которой $f \in Lip_r(U)$, то есть существует постоянная $L$, для которой
+    \begin{equation*}
+        |f(t', r') - f(t', r'')| \le L|r' - r''|
+    \end{equation*}
+    при любых $(t',r'), (t',r'') \in U$. Выберем номер $N$ так, чтобы $N > L$ и $(t_N, r_N), (t_N, \widetilde{r}_N) \in U$, и положим $t' = t_N$, $r' = r_N$, $r'' = \widetilde{r}_N$. Тогда из неравенства (\ref{badlip}) следует
+    \begin{equation*}
+        |f(t',r') - f(t',r'')| > N|r' - r''| \ge L|r' - r''|
+    \end{equation*}
+    что противоречит условию Липшица.
+    \item $r \neq \widetilde{r}$. Выберем непересекающиеся параллелепипеды $R = [a,b] \times X$ и $\widetilde{R} = [a,b] \times \widetilde{X}$, для которых точки $(t,r)$ и $(t,\widetilde{r})$ соответственно являются внутренними. Рассмотрим функцию
+    \begin{equation*}
+        g(t,x,y) = \frac{|f(t,x) - f(t,y)|}{|x - y|}
+    \end{equation*}
+    определенную на компакте $[a,b] \times X \times \widetilde{X}$, где она непрерывна, а значит, ограничена некоторым числом $L$. Выбирая номер $N > L$, такой что $(t_N, r_N) \in R$ и $(t_N, \widetilde{r}_N) \in \widetilde{R}$, из (\ref{badlip}) получаем
+    \begin{equation*}
+        g(t_N, r_N, \widetilde{r}_N) > N > L
+    \end{equation*}
+    что, естественно, противоречит ограниченности $g$.
+\end{enumerate}

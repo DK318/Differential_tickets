@@ -1,0 +1,50 @@
+\textbf{Теорема (Общее решение ЛНС).} Пусть $P \in M_n(C(a,b))$, $q \in C((a,b) \to \mathbb{R}^n)$, $\varphi$ --- решение системы
+\begin{equation}
+    \dot{r} = P(t)r + q(t) \label{lnusyst2}
+\end{equation}
+$\Phi$ --- фундаментальная матрица системы
+\begin{equation*}
+    \dot{r} = P(t)r
+\end{equation*}
+Тогда общее решение неоднородной системы (\ref{lnusyst2}) имеет вид
+\begin{equation*}
+    r = \Phi C + \varphi, \quad C \in \mathbb{R}^n
+\end{equation*}
+\textbf{Доказательство.} Пусть $r$ --- произвольное решение (\ref{lnusyst2}). Тогда
+\begin{equation*}
+    \dot{r} = Pr + q
+\end{equation*}
+Функция $\varphi$ удовлетворяет такому же соотношению:
+\begin{equation*}
+    \dot{\varphi} = P\varphi + q
+\end{equation*}
+Вычитая эти равенства, находим
+\begin{equation*}
+    (r - \varphi)' = P(r - \varphi)
+\end{equation*}
+Значит, найдется вектор-столбец $C \in \mathbb{R}^n$, такой что
+\begin{equation*}
+    r - \varphi = \Phi C
+\end{equation*}
+
+Верно и обратное: любая функция вида $\Phi C + \varphi$ являются решением (\ref{lnusyst2}), что проверяется непосредственной подстановкой.\\
+
+\noindent \textbf{Теорема (метод вариации постоянных для ЛНС).} Пусть $\Phi$ --- фундаментальная матрица системы $\dot{r} = P(t)r$, $P \in M_n(C(a,b))$, $q \in C((a,b) \to \mathbb{R}^n)$. Тогда если вектор-функция $C$ пробегает все решения системы
+\begin{equation*}
+    \Phi\dot{C} = q
+\end{equation*}
+то $r = \Phi C$ пробегает все решения системы (\ref{lnusyst2})\\
+
+\noindent \textbf{Доказательство.} Опираясь на формулу для обратной матрицы, использующей алгебраические дополнения, заключаем, что $\Phi^{-1} \in M_n(C(a,b))$. Поэтому
+\begin{equation*}
+    C(t) = \int \Phi^{-1}q + A
+\end{equation*}
+где $A$ --- вектор произвольных постоянных. Тогда требуется доказать, что общее решение системы (\ref{lnusyst2}) имеет вид
+\begin{equation*}
+    r = \Phi A + \Phi \int \Phi^{-1}q
+\end{equation*}
+По теореме об общем решении ЛНС достаточно показать, что второе слагаемое в правой части --- частное решение системы (\ref{lnusyst2}). Убедимся в этом подстановкой:
+\begin{equation*}
+    \dot{\Phi}\int \Phi^{-1}q + \Phi\Phi^{-1}q = P(t)\Phi \int \Phi^{-1}q + q
+\end{equation*}
+Это верное тождество, поскольку $P(t)\Phi = \dot{\Phi}$.

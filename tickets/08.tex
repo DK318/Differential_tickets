@@ -1,0 +1,62 @@
+\textbf{Лемма (Гронуолл).} Пусть $\varphi \in C[a,b]$, $t_0 \in [a,b]$, $\lambda, \mu \ge 0$, при любом $t \in [a,b]$ верно неравенство
+\begin{equation*}
+    0 \le \varphi(t) \le \lambda + \mu \left|\int_{t_0}^t \varphi(\tau)d\tau\right|
+\end{equation*}
+Тогда для любого $t \in [a,b]$
+\begin{equation*}
+    \varphi(t) \le \lambda e^{\mu|t - t_0|}
+\end{equation*}
+\textbf{Доказательство.} Рассмотрим случай $t \ge t_0$ (при $t < t_0$ доказательство аналогично). Предположим, что $\lambda > 0$ и введем функцию
+\begin{equation*}
+    v(t) = \lambda + \mu \int_{t_0}^t \varphi(\tau)d\tau
+\end{equation*}
+
+Имеем $v(t) > 0$, $v'(t) = \mu\varphi(t) \le \mu v(t)$. Отсюда
+\begin{equation*}
+    \frac{v'(t)}{v(t)} \le \mu
+\end{equation*}
+Интегрируя это неравенство по отрезку $[t_0, t]$, получаем
+\begin{equation*}
+    v(t) \le v(t_0)e^{\mu(t-t_0)}
+\end{equation*}
+Следовательно,
+\begin{equation*}
+    \varphi(t) \le v(t) \le v(t_0)e^{\mu(t-t_0)} = \lambda e^{\mu(t-t_0)}
+\end{equation*}
+
+Если же $\lambda = 0$, то при любом $\lambda_1 > 0$ верно
+\begin{equation*}
+    \varphi(t) \le \mu \int_{t_0}^t \varphi(\tau)d\tau \le \lambda_1 + \mu \int_{t_0}^t \varphi(\tau)d\tau
+\end{equation*}
+По уже доказанному имеем
+\begin{equation*}
+    \varphi(t) \le \lambda_1 e^{\mu (t - t_0)}
+\end{equation*}
+Переходя здесь к пределу при $\lambda_1 \to 0$, получаем $\varphi(t) \le 0$. Значит, лемма верна и при $\lambda = 0$.\\
+
+\noindent \textbf{Теорема (Пикар).} Пусть $G \subset \mathbb{R}_{t,r}^{n+1}$ --- область, $f \in C(G \to \mathbb{R}^n) \cap Lip_{r,loc}(G)$, $(t_0, r_0) \in G$. Тогда
+\begin{enumerate}
+    \item на отрезке Пеано существует решение задачи
+    \begin{equation}
+        \dot{r} = f(t,r), \quad r(t_0) = r_0 \label{zkpeano1}
+    \end{equation}
+    \item если $\psi_1$ и $\psi_2$ --- решения (\ref{zkpeano1}) на $(a,b)$, то $\psi_1 \equiv \psi_2$ на $(a,b)$
+\end{enumerate}
+\textbf{Доказательство (единственность).} Будем считать, что $t_0 = 0$, $r_0 = 0$ (в противном случае перенесем начало координат в точку $(t_0, r_0)$). Пусть $\psi_1$ и $\psi_2$ --- решения (\ref{zkpeano1}). По лемме о равносильном интегральном уравнении имеем
+\begin{equation*}
+    \psi_1(t) = \int_0^t f(\tau, \psi_1(\tau))d\tau, \quad \psi_2(t) = \int_0^t f(\tau, \psi_2(\tau))d\tau
+\end{equation*}
+поэтому
+\begin{equation*}
+    |\psi_1(t) - \psi_2(t)| \le \int_0^t |f(\tau, \psi_1(\tau)) - f(\tau, \psi_2(\tau))|d\tau
+\end{equation*}
+
+Рассмотрим произвольный отрезок $[\alpha, \beta] \subset (a,b)$, содержащий ноль. Графики функций $\psi_1$ и $\psi_2$ на $[\alpha, \beta]$ --- компактные множества. Значит по лемме о глобальном условии Липшица найдется постоянная $\widetilde{L}$, такая что
+\begin{equation*}
+    |f(\tau, \psi_1(\tau)) - f(\tau, \psi_2(\tau))| \le \widetilde{L}|\psi_1(\tau) - \psi_2(\tau)|
+\end{equation*}
+при всех $\tau \in [\alpha,\beta]$. Следовательно,
+\begin{equation*}
+    |\psi_1(t) - \psi_2(t)| \le \widetilde{L} \int_0^t |\psi_1(\tau) - \psi_2(\tau)|d\tau
+\end{equation*}
+По лемме Гронуолла будет $|\psi_1(t) - \psi_2(t)| = 0$ на $[\alpha, \beta]$, то есть $\psi_1 \equiv \psi_2$ на $[\alpha,\beta]$. Так как отрезок $[\alpha, \beta]$ был выбран произвольно, то функции $\psi_1$ и $\psi_2$ совпадают на всем интервале $(a,b)$.

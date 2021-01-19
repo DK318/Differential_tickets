@@ -1,0 +1,117 @@
+\textbf{Определение.} \textbf{Линейным дифференциальным уравнением} порядка $n$ называется уравнение вида
+\begin{equation}
+    y^{(n)} + p_{n-1}(t)y^{(n - 1)} + \ldots + p_1(t)\dot{y} + p_0(t)y = q(t) \label{lndu}
+\end{equation}
+где $p_0, p_1, \ldots, p_{n-1}, q \in C(a,b)$.\\
+
+\noindent \textbf{Определение.} Если $q \equiv 0$ на $(a,b)$, то уравнение (\ref{lndu}), то есть
+\begin{equation}
+    y^{(n)} + p_{n-1}(t)y^{(n - 1)} + \ldots + p_1(t)\dot{y} + p_0(t)y = 0 \label{lnou}
+\end{equation}
+называется \textbf{однородным}, в противном случае --- \textbf{неоднородным}.\\
+
+\noindent \textbf{Лемма (О равносильной ЛС).} Если функция $y$ --- решение уравнения (\ref{lndu}) на $(a,b)$, то вектор-функция $\Lambda_n y = (y, \dot{y}, \ldots, y^{(n-1)})$ --- решение системы
+\begin{equation}
+    \dot{r} = P(t)r + Q(t) \label{ravn}
+\end{equation}
+где
+\begin{equation*}
+    P = \begin{pmatrix}
+    0 & 1 & 0 & \ldots & 0\\
+    0 & 0 & 1 & \ldots & 0\\
+    \ldots\\
+    0 & 0 & 0 & \ldots & 1\\
+    -p_0 & -p_1 & -p_2 & \ldots & -p_{n - 1}
+    \end{pmatrix}, \quad Q = \begin{pmatrix}
+    0\\
+    0\\
+    \ldots\\
+    0\\
+    q
+    \end{pmatrix}
+\end{equation*}
+
+И наоборот, если $r = (y_1, y_2, \ldots, y_n)$ --- решение системы (\ref{ravn}), то $y_1$ --- решение (\ref{lndu}) на $(a,b)$ и $r = \Lambda_n y_1$.\\
+
+\noindent \textbf{Теорема (Об изоморфизме).} Пусть $p_0, p_1, \ldots, p_{n-1} \in C(a,b)$. Тогда множество решений однородного уравнения (\ref{lnou}) является линейным пространством, изоморфным пространству решений системы
+\begin{equation}
+    \dot{y} = P(t)y \label{izomorf}
+\end{equation}
+где матрица $P$ та же, что и в лемме о равносильной ЛС. При этом изоморфизм устанавливается отображением $\Lambda_n$.\\
+
+\noindent \textbf{Доказательство.} Любое решение уравнения (\ref{lnou}) по теореме о существовании и единственности максимального решения ЛУ является элементом линейного пространства $C^n(a,b)$. Кроме того, сумма двух решений, а также решение, умноженное на произвольное число, также являются решениями. Поэтому множество всех решений само образует линейное пространство.
+
+Лемма о равносильной ЛС устанавливает биекцию между решениями уравнения и равносильной системы. Отображение $\Lambda_n$ линейно. Таким образом, $\Lambda_n$ --- изоморфизм.\\
+
+\noindent \textbf{Определение.} \textbf{Определителем Вронского} (или \textbf{вронскианом}) функций $y_1, y_2, \ldots, y_n \in C^{n-1}(a,b)$ называют
+\begin{equation*}
+    W(t) = \begin{vmatrix}
+    y_1(t) & y_2(t) & \ldots & y_n(t)\\
+    \dot{y}_1(t) & \dot{y}_2(t) & \ldots & \dot{y}_n(t)\\
+    \ldots\\
+    y_1^{(n-1)}(t) & y_2^{(n-1)}(t) & \ldots & y_n^{(n-1)}(t)
+    \end{vmatrix}
+\end{equation*}
+
+\noindent \textbf{Теорема (Формула Остроградского-Лиувилля для решений ЛОУ).} Пусть $t, t_0 \in (a,b)$, $p_0, p_1, \ldots, p_{n-1} \in C(a,b)$, $\{y_k\}_{k=1}^n$ --- решения линейного однородного уравнения (\ref{lnou}). Тогда вронскиан этих решений
+\begin{equation*}
+    W(t) = W(t_0)\exp \int_{t_0}^t (-p_{n-1}(\tau))d\tau
+\end{equation*}
+\textbf{Доказательство.} Принимая во внимание формулу Остроградского-Лиувилля для решений ЛОС и лемму о равносильной ЛС, находим
+\begin{equation*}
+    \begin{aligned}
+        &W(y_1,\ldots, y_n) = W(\Lambda y_1,\ldots, \Lambda y_n) =\\
+        &= W(t_0)\exp \int_{t_0}^t tr\,P(\tau)d\tau = W(t_0)\exp \int_{t_0}^t (-p_{n-1}(\tau))d\tau 
+    \end{aligned}
+\end{equation*}
+
+\noindent \textbf{Теорема (метод вариации постоянных для ЛНУ).} Пусть $\{y_k\}_{k=1}^n$ --- фундаментальная система решений однородного уравнения (\ref{lnou}). Тогда если функции $\{C_k\}$ пробегают все решения системы
+\begin{equation*}
+    \begin{pmatrix}
+    y_1 & y_2 & \ldots & y_n\\
+    \dot{y}_1 & \dot{y}_2 & \ldots & \dot{y}_n\\
+    \ldots\\
+    y_1^{(n-2)} & y_2^{(n-2)} & \ldots & y_n^{(n-2)}\\
+    y_1^{(n-1)} & y_2^{(n-1)} & \ldots & y_n^{(n-1)}
+    \end{pmatrix}
+    \begin{pmatrix}
+    \dot{C}_{1}\\
+    \dot{C}_{2}\\
+    \ldots\\
+    \dot{C}_{n-1}\\
+    \dot{C}_{n}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    0\\
+    0\\
+    \ldots\\
+    0\\
+    q
+    \end{pmatrix}
+\end{equation*}
+то $y = \displaystyle\sum_{k = 1}^n C_ky_k$ пробегает все решения уравнения (\ref{lndu}).\\
+
+\noindent \textbf{Доказательство.} По теореме о методе вариации постоянных для ЛС общее решение системы, равносильной уравнению (\ref{lndu}), имеет вид
+\begin{equation*}
+    r = \sum_{k=1}^n C_k \Lambda y_k
+\end{equation*}
+где функции $C_1, \ldots, C_n$ удовлетворяют системе
+\begin{equation*}
+    (\Lambda y_1, \ldots, \Lambda y_n)
+    \begin{pmatrix}
+    \dot{C}_{1}\\
+    \ldots\\
+    \dot{C}_{n-1}\\
+    \dot{C}_{n}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    0\\
+    \ldots\\
+    0\\
+    q
+    \end{pmatrix}
+\end{equation*}
+
+По лемме о равносильной ЛС первая строка вектора $r$ --- общее решение уравнения (\ref{lndu}).

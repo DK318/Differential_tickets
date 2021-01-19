@@ -1,0 +1,78 @@
+\textbf{Теорема (Пикар).} Пусть $G \subset \mathbb{R}_{t,r}^{n+1}$ --- область, $f \in C(G \to \mathbb{R}^n) \cap Lip_{r,loc}(G)$, $(t_0, r_0) \in G$. Тогда
+\begin{enumerate}
+    \item на отрезке Пеано существует решение задачи
+    \begin{equation}
+        \dot{r} = f(t,r), \quad r(t_0) = r_0 \label{zkpeano2}
+    \end{equation}
+    \item если $\psi_1$ и $\psi_2$ --- решения (\ref{zkpeano2}) на $(a,b)$, то $\psi_1 \equiv \psi_2$ на $(a,b)$
+\end{enumerate}
+\textbf{Доказательство (существование решения).} Будем считать, что $t_0 = 0$, $r_0 = 0$ (в противном случае перенесем начало координат в точку $(t_0, r_0)$). Достаточно установить существование решения на отрезке $[0, h]$ --- правой половине отрезка Пеано. (см. рассуждения в теореме Пеано о существовании решения)
+
+Пусть
+\begin{equation*}
+    \begin{aligned}
+        &\Pi = \left\{(t,r) \in \mathbb{R}^{n + 1}\,|\, |t| \le a,\, |r| \le b\right\} \subset G,\\
+        &M = \max_{(t,r) \in \Pi} |f(t,r)|
+    \end{aligned}
+\end{equation*}
+Тогда в качестве $h$ можно взять число $\min \{a, \frac{b}{M}\}$ (см. определение отрезка Пеано).
+
+На отрезке $[0,h]$ зададим последовательность функций
+\begin{equation*}
+    \begin{aligned}
+        &\varphi_0(t) = 0\\
+        &\varphi_{k+1} = \int_0^t f(\tau, \varphi_k(\tau))d\tau
+    \end{aligned}
+\end{equation*}
+Дальнейшее изложение доказательства будет состоять из следующих этапов:
+\begin{enumerate}
+    \item Докажем корректность определения последовательности $\{\varphi_k\}$: чтобы построить функцию $\varphi_{k+1}$ должно быть $(t, \varphi_k(t)) \in G$ при всех $t \in [0,h]$.
+    \item Покажем, что последовательность $\{\varphi_k(t)\}$ равномерно на $[0,h]$ сходится к некоторой функции $\varphi$.
+    \item Установим, что $\varphi$ --- решение интегрального уравнения, равносильного задаче (\ref{zkpeano2})
+\end{enumerate}
+
+\begin{enumerate}
+    \item При $k = 0$ очевидно, $(t, \varphi_k(t)) \in G$. Допустим справедливость этого утверждения при некотором $k$. Тогда функция $\varphi_{k+1}$ определена на $[0,h]$ и
+    \begin{equation*}
+        |\varphi_{k+1}(t)| \le \int_0^t |f(\tau, \varphi_k(\tau))|d\tau \le Mt \le Mh \le M\frac{b}{M} = b
+    \end{equation*}
+    что влечет включение $(t, \varphi_{k+1}(t)) \in \Pi \subset G$ при всех $t \in [0,h]$
+    \item Воспользуемся критерием Коши. А именно, установим, что для любого $\varepsilon > 0$ найдется $N \in \mathbb{N}$, такое что при всех $m \ge N$, всех $k \in \mathbb{N}$ и всех $t \in [0,h]$
+    \begin{equation*}
+        |\varphi_{m+k}(t) - \varphi_m(t)| \le \varepsilon
+    \end{equation*}
+    По лемме о глобальном условии Липшица будет $f \in Lip_r(\Pi)$ с некоторой константой Липшица $L$. Индукцией по $m$ докажем неравенство
+    \begin{equation}
+        |\varphi_{m+k}(t) - \varphi_m(t)| \le \frac{ML^mt^{m+1}}{(m+1)!} \label{ind}
+    \end{equation}
+    При $m = 0$ утверждение верно, так как
+    \begin{equation*}
+        |\varphi_k(t) - \varphi_0(t)| \le \int_0^t |f(\tau, \varphi_{k-1}(\tau))|d\tau \le Mt
+    \end{equation*}
+    Допуская его справедливость при некотором $m$, имеем
+    \begin{equation*}
+        \begin{aligned}
+            &|\varphi_{m + 1 + k}(t) - \varphi_{m+1}(t)| \le \int_0^t |f(\tau, \varphi_{m+k}(\tau)) - f(\tau, \varphi_m(\tau))|d\tau \le \\
+            &\le \int_0^t L|\varphi_{m+k}(\tau) - \varphi_m(\tau)|d\tau \le \int_0^t L\frac{ML^m\tau^{m+1}}{(m+1)!}d\tau = \frac{ML^{m+1}t^{m+2}}{(m+2)!}
+        \end{aligned}
+    \end{equation*}
+    что и требовалось. Из (\ref{ind}) вытекает, что при любом $t \in [0,h]$
+    \begin{equation}
+        |\varphi_{m+k}(t) - \varphi_m(t)| \le \frac{ML^mh^{m+1}}{(m+1)!} \label{indh}
+    \end{equation}
+    Выражение в правой части не зависит от $t$ и $k$ и стремится к нулю при $m \to \infty$, поскольку оно является общим членом ряда Тейлора для экспоненты. Значит, последовательность $\{\varphi_m\}$ удовлетворяет критерию Коши. Обозначим через $\varphi$ ее предел на $[0,h]$.
+    \item Переходя к пределу при $m \to \infty$ в равенстве
+    \begin{equation*}
+        \varphi_{m+1}(t) = \int_0^t f(\tau, \varphi_m(\tau))d\tau
+    \end{equation*}
+    получаем
+    \begin{equation}
+        \varphi(t) = \lim_{m \to \infty} \int_0^t f(\tau, \varphi_m(\tau))d\tau \label{lim}
+    \end{equation}
+    
+    В первом пункте было установлено, что $(t, \varphi_m(t)) \in \Pi$ при всех $t \in [0,h]$. Тогда при $m \to \infty$ будет $(t, \varphi(t)) \in \Pi$ при всех таких $t$. Следовательно,
+    \begin{equation*}
+        |f(\tau, \varphi_m(\tau)) - f(\tau, \varphi(\tau))| \le L|\varphi_m(\tau) - \varphi(\tau)|
+    \end{equation*}
+    Учитывая равномерную сходимость $\varphi_m$, из данного неравенства следует, что $f(t, \varphi_m(t)) \to f(t, \varphi(t))$ при $m \to \infty$ равномерно на $[0,h]$. Это позволяет внести знак предела под интеграл в (\ref{lim}). После этого по лемме о равносильном интегральном уравнении заключаем, что $\varphi$ --- решение задачи (\ref{zkpeano2}) на $[0,h]$.
+\end{enumerate}

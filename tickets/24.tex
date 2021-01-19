@@ -1,0 +1,126 @@
+Рассмотрим нелинейную автономную систему $\dot{r} = f(r)$. Допустим, вектор-функция $f$ дифференцируема. Тогда по формуле Тейлора
+\begin{equation*}
+    f(r) = f(0) + f'(0)r + o(r)
+\end{equation*}
+
+\noindent \textbf{Определение.} Пусть $f(0) = 0$. Тогда система
+\begin{equation*}
+    \dot{r} = f'(0)r
+\end{equation*}
+называется \textbf{системой первого приближения} или \textbf{линеаризацией} системы $\dot{r} = f(r)$\\
+
+\noindent \textbf{Теорема (Ляпунов, устойчивость по первому приближению).} Пусть $f \in C^2(\Omega)$, где $\Omega \subset \mathbb{R}^n$ --- окрестность нуля, $f(0) = 0$. Тогда нулевое решение системы $\dot{r} = f(r)$
+\begin{enumerate}
+    \item асимптотически устойчиво, если $Re\, \lambda < 0$ для любого $\lambda \in spec\, f'(0)$
+    \item неустойчиво, если найдется $\lambda \in spec\, f'(0)$, для которого $Re\, \lambda > 0$
+\end{enumerate}
+
+\noindent \textbf{Доказательство.} В окрестности $r = 0$ систему $\dot{r} = f(r)$ можно записать в виде
+\begin{equation*}
+    \dot{r} = Ar + q(r)
+\end{equation*}
+где $q(r) = o(|r|)$ при $|r| \to 0$. Решение задачи Коши $\dot{r} = f(r),\, r(0) = r_0$ в силу предположения в некоторой окрестности $r_0$ определено для всех $t > 0$. Его можно записать в виде
+\begin{equation*}
+    r(t) = e^{At}\cdot r_0 + \int_0^t e^{A(t-\tau)}\cdot q(r(\tau))d\tau
+\end{equation*}
+
+Если $Re\, \lambda < 0$ для любого $\lambda \in spec\, f'(0)$, то найдется $\mu > 0$ такое, что $Re\, \lambda < -2\mu < 0$. Решение задачи Коши для $\dot{r} = Ar,\, r(0) = r_0$ имеет вид
+\begin{equation*}
+    r = e^{At}\cdot r_0
+\end{equation*}
+
+Покажем, что найдется такое $M > 0$, что норма матричной экспоненты
+\begin{equation*}
+    |e^{At}| \le Me^{-\mu t}, \quad \forall t \ge 0
+\end{equation*}
+Каждый элемент $a_{ij}(t)$ матрицы $e^{At}$ является конечной суммой квазимногочленов
+\begin{equation*}
+    a_{ij}(t) = \sum_{k=1}^m P_k^{(i,j)}(t) e^{\lambda_kt}
+\end{equation*}
+где $P_k^{(i,j)}(t)$ --- многочлены, $m$ --- количество собственных чисел. Всегда найдется такое число $c_{ij} > 0$, что для всех $k \in [1:m]$
+\begin{equation*}
+    |P_k^{(i,j)}(t)e^{\lambda_kt}| \le c_{ij}e^{-\mu t}, \quad \forall t > 0
+\end{equation*}
+Тогда
+\begin{equation*}
+    \begin{aligned}
+        &|r(t)| \le |e^{At}| |r_0| = |r_0| \sqrt{\sum_{i,j=1}^n |a_{ij}(t)|^2} \le\\
+        &\le |r_0| e^{-\mu t}m \sqrt{\sum_{i,j=1}^n |c_{ij}|^2} = Me^{-\mu t} |r_0|
+    \end{aligned}
+\end{equation*}
+
+Так как $q(r) = o(|r|)$ при $|r| \to 0$, то для любого $\varepsilon > 0$ найдется $\delta = \delta(\varepsilon) > 0$ такое, что из $|r| < \delta$ следует $|q(r)| \le \varepsilon|r|$. Тогда при всех $t > 0$
+\begin{equation*}
+    \begin{aligned}
+        |r(t)| &\le |e^{At} r_0| + \int_0^t |e^{A(t - \tau)} q(r(\tau))|d\tau \le\\
+        &\le |e^{At}| |r_0| + \int_0^t |e^{A(t - \tau)}| |q(r(\tau))|d\tau \le\\
+        &\le Me^{-\mu t} |r_0| + \varepsilon M\int_0^t e^{-\mu (t - \tau)}|r(\tau)|d\tau
+    \end{aligned}
+\end{equation*}
+
+Если положить $u(t) = e^{\mu t}|r(t)|$, то отсюда находим, что
+\begin{equation*}
+    u(t) \le M |r_0| + \varepsilon M\int_0^t u(\tau)d\tau
+\end{equation*}
+Функция $u(t)$ удовлетворяет условиям леммы Гронуолла. Значит, что при всех $t > 0$
+\begin{equation*}
+    u(t) \le M |r_0|e^{\varepsilon Mt}
+\end{equation*}
+Заменяя $u(t)$ на $e^{\mu t} |r(t)|$, получаем оценку
+\begin{equation*}
+    |r(t)| \le M |r_0|e^{-(\mu - \varepsilon M)t}
+\end{equation*}
+Из полученной оценки следует, что при достаточно малых $\varepsilon > 0$
+\begin{equation*}
+    r(t) \to 0, \quad t \to +\infty
+\end{equation*}
+если фиксировать $\varepsilon > 0$, положив, например, $\varepsilon = \frac{\mu}{2M}$. Кроме того, взяв $\delta = \delta(\varepsilon) = \frac{\varepsilon}{M}$, из оценки получаем, что $|r(t)| < \varepsilon$ при $|r_0| < \delta$ для всех $t > 0$.
+
+Второй пункт теоремы следует непосредственно из доказательства теоремы об устойчивости ЛОС с постоянными коэффициентами (мб кукарек, хз как доказать).\\
+
+\noindent \textbf{Определение.} Пусть $\Omega \subset \mathbb{R}^n$ --- окрестность нуля. Функция $V \in C^1(\Omega)$ называется \textbf{функцией Ляпунова} системы $\dot{r} = f(r)$, если
+\begin{itemize}
+    \item $V(r) > 0$ при всех $r \in \Omega \setminus \{0\}$, $V(0) = 0$
+    \item $V' \cdot f \le 0$ при всех $r \in \Omega$
+\end{itemize}
+
+\noindent \textbf{Теорема (Ляпунов, об устойчивости).} Пусть $f \in Lip_{loc}(\Omega)$, $\Omega \subset \mathbb{R}^n$ --- окрестность нуля, $f(0) = 0$. Если в области $\Omega$ существует функция Ляпунова системы $\dot{r} = f(r)$, то $r = 0$ --- устойчивое решение.\\
+
+\noindent \textbf{Доказательство.} Будем доказывать от противного. Пусть нулевое положение равновесия неустойчиво. Тогда найдется такое $\varepsilon > 0$, что при любом сколь угодно малом $\delta > 0$ можно выбрать такое начальное положение $r_0$ из $\delta$-окрестности нуля, что будет ложным утверждение
+\begin{equation}
+    \forall t \ge 0 \quad |r(t, 0, r_0)| < \varepsilon \label{lyap}
+\end{equation}
+Все числа, меньшие $\varepsilon$, обладают тем же свойством, что и $\varepsilon$. Поэтому можно считать, что $\varepsilon$-окрестность содержится вместе с границей в области $\Omega$.
+
+Ложность утверждения (\ref{lyap}) означает одно из двух:
+\begin{enumerate}
+    \item решение $r(t, 0, r_0)$ определено не при всех $t \ge 0$
+    \item найдется $t_{\varepsilon} > 0$, такое что $|r(t_{\varepsilon}, 0, r_0)| \ge \varepsilon$
+\end{enumerate}
+
+Допустим, выполнено (1), то есть максимальное решение $r(t, 0, r_0)$ (которое существует и единственно) определено на интервале $(a,b) \ni 0$, где $b < +\infty$. Построим параллелепипед $[0,b] \times \overline{B}_{\varepsilon}(0)$, где $\overline{B}_{\varepsilon}(0)$ --- замыкание $\varepsilon$-окрестности нуля. Интегральная кривая решения $r(t, 0, r_0)$ выйдет на его границу при некотором $t_{\varepsilon} < b$. Значит, верно утверждение (2).
+
+Итак, достаточно получить противоречие, если верно (2). Будем считать, что $t_{\varepsilon}$ --- это точка, в которой $r(t_{\varepsilon}, 0, r_0) \in \partial B_{\varepsilon}(0)$, где $\partial B_{\varepsilon}(0)$ --- граница $\varepsilon$-окрестности нуля.
+
+Пусть $V_M = \displaystyle\min_{r \in \partial B_{\varepsilon}(0)}V(r)$. Поскольку $V(r) \to 0$ при $r \to 0$, то можно выбрать $\delta$ так, чтобы $V(r) < \frac{V_M}{2}$ при $|r| < \delta$. Положим
+\begin{equation*}
+    v(t) = V(r(t, 0, r_0))
+\end{equation*}
+где $r_0$ выбрано из $\delta$-окрестности нуля так, чтобы выполнялось (2).
+
+Функция $v$ дифференцируема
+\begin{equation*}
+    \begin{aligned}
+        &v(0) = V(r_0) < \frac{V_M}{2}\\
+        &v(t_{\varepsilon}) = V(r(t_{\varepsilon}, 0, r_0)) \ge V_M
+    \end{aligned}
+\end{equation*}
+Поэтому найдется точка $t_1 \in (0, t_{\varepsilon})$, в которой $\dot{v}(t_1) > 0$.
+
+Однако, исходя из второго свойства функции Ляпунова, имеем
+\begin{equation*}
+    \dot{v}(t_1) = V'(r(t_1, 0, r_0))\cdot r'_t(t_1, 0, r_0) = V'(r(t_1, 0, r_0)) \cdot f(r(t_1, 0, r_0)) \le 0
+\end{equation*}
+Полученное противоречие завершает доказательство теоремы.\\
+
+\noindent \textbf{Теорема (Ляпунов, об асимптотической устойчивости).} Если в условиях предыдущей теоремы выполнено $V' \cdot f < 0$ в области $\Omega \setminus \{0\}$, то нулевое решение системы $\dot{r} = f(r)$ асимптотически устойчиво.

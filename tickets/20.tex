@@ -1,0 +1,86 @@
+\textbf{Определение.} \textbf{Линейным дифференциальным уравнением с постоянными коэффициентами} называют уравнение вида
+\begin{equation}
+    y^{(n)} + a_{n - 1}y^{(n-1)} + \ldots + a_1\dot{y} + a_0y = f(t) \label{lupost}
+\end{equation}
+где $a_0, a_1, \ldots, a_{n-1} \in \mathbb{C}$, $f \in C(a,b)$.\\
+
+В дальнейшем для краткости используется обозначение
+\begin{equation*}
+    Ly = \frac{d^n}{dt^n}y + a_{n-1}\frac{d^{n-1}}{dt^{n-1}}y + \ldots + a_1\frac{d}{dt}y + a_0y = \left(\sum_{k = 0}^n a_k\frac{d^k}{dt^k} \right)y
+\end{equation*}
+где $a_n = 1$. При помощи оператора $L$ уравнение (\ref{lupost}) записывается в виде
+\begin{equation*}
+    Ly = f(t)
+\end{equation*}
+
+Рассмотрим линейное однородное уравнение
+\begin{equation}
+    Ly = 0 \label{lodnpost}
+\end{equation}
+Применяя оператор $L$ к функции $e^{\lambda t}$, находим
+\begin{equation*}
+    L(e^{\lambda t}) = \sum_{k = 0}^n a_k\frac{d^k}{dt^k}e^{\lambda t} = \left(\sum_{k = 0}^n a_k\lambda^k \right)e^{\lambda t}
+\end{equation*}
+
+\noindent \textbf{Определение.} Многочлен
+\begin{equation*}
+    p(\lambda) = \lambda^n + a_{n-1}\lambda^{n-1} + \ldots + a_1\lambda + a_0
+\end{equation*}
+называется \textbf{характеристическим многочленом} уравнения (\ref{lupost}), а его корни --- \textbf{характеристическими числами} уравнения (\ref{lupost}).\\
+
+Если $\lambda$ --- корень характеристического многочлена, то получаем $L(e^{\lambda t}) \equiv 0$. Верно и обратное: если $e^{\lambda t}$ --- решение однородного уравнения (\ref{lodnpost}), то $\lambda$ --- корень многочлена $p$. Докажем более общее утверждение.\\
+
+\noindent \textbf{Лемма.} Пусть $\lambda \in \mathbb{C}$ --- корни кратности $m \in \mathbb{N}$ характеристического многочлена уравнения (\ref{lodnpost}). Тогда функции
+\begin{equation*}
+    e^{\lambda t}, te^{\lambda t}, \ldots, t^{m-1}e^{\lambda t}
+\end{equation*}
+являются решениями (\ref{lodnpost}).\\
+
+\noindent \textbf{Доказательство.} Убедимся подстановкой в уравнение (\ref{lodnpost}), что указанные функции являются решениями.
+
+Пусть $k \in [0 : m-1]$. Считая $\lambda$ переменной, в силу бесконечной дифференцируемости функции $e^{\lambda t}$ при любом $j \in \mathbb{Z}_{+}$ будет
+\begin{equation*}
+    \frac{\partial^j}{\partial t^j}\frac{\partial^k}{\partial \lambda^k}e^{\lambda t} = \frac{\partial^k}{\partial\lambda^k}\frac{\partial^j}{\partial t^j}e^{\lambda t}
+\end{equation*}
+Тогда
+\begin{equation*}
+    L(t^ke^{\lambda t}) = L\left(\frac{\partial^k}{\partial\lambda^k}e^{\lambda t} \right) = \frac{\partial^k}{\partial\lambda^k}L(e^{\lambda t})
+\end{equation*}
+Применяя формулу Лейбница, имеем
+\begin{equation*}
+    \frac{\partial^k}{\partial\lambda^k}L(e^{\lambda t}) = \frac{\partial^k}{\partial\lambda^k} (p(\lambda)e^{\lambda t}) = \sum_{j = 0}^k C_k^j p^{(j)}(\lambda)\frac{\partial^{k - j}}{\partial\lambda^{k - j}} e^{\lambda t}
+\end{equation*}
+Подставляя вместо $\lambda$ корень кратности $m$ многочлена $p$, получаем ноль, поскольку при $j \in [0 : k]$ обнуляются значения $p^{(j)}(\lambda)$.\\
+
+\noindent \textbf{Лемма (Линейная независимость квазиодночленов).} Пусть $k_j \in \mathbb{Z}_{+}$, $\lambda_j \in \mathbb{C}$ при $j \in [1 : n]$, $\{(k_j,\lambda_j)\}_{j=1}^n$ --- различные пары чисел. Тогда функции $\{t^{k_j}e^{\lambda_jt}\}_{j=1}^n$ линейно независимы на любом промежутке из $\mathbb{R}$.\\
+
+\noindent \textbf{Доказательство.} Разобьем множество пар $(k_1, \lambda_1), \ldots, (k_n, \lambda_n)$ на группы с одинаковым вторым элементом. Если такая группа одна, то линейная независимость следует из линейной независимости одночленов.
+
+Допустим, что линейная независимость доказана, если количество групп равно $m$. Предположим, что в случае $m + 1$ группы некоторая нетривиальная линейная комбинация этих функций тождественно равна нулю. Объединяя слагаемые с одинаковыми экспонентами и изменяя нумерацию чисел $\lambda_i$, имеем
+\begin{equation*}
+    p_1(t)e^{\lambda_1 t} + p_2(t)e^{\lambda_2 t} + \ldots + p_{m+1}(t)e^{\lambda_{m+1}t} \equiv 0
+\end{equation*}
+где $p_i$ --- многочлены, а числа $\lambda_i$ различны. Деля обе части на $e^{\lambda_{m+1}t}$, получаем
+\begin{equation*}
+    p_1(t)e^{(\lambda_1 - \lambda_{m+1}) t} + p_2(t)e^{(\lambda_2 - \lambda_{m+1}) t} + \ldots + p_m(t)e^{(\lambda_m - \lambda_{m+1}) t} + p_{m+1}(t) \equiv 0
+\end{equation*}
+
+Дифференцируя это тождество $deg\, p_{m+1} + 1$ раз, находим
+\begin{equation}
+    q_1(t)e^{(\lambda_1 - \lambda_{m+1}) t} + q_2(t)e^{(\lambda_2 - \lambda_{m+1}) t} + \ldots + q_m(t)e^{(\lambda_m - \lambda_{m+1}) t} \equiv 0 \label{diffeq}
+\end{equation}
+где при всех $i \in [1:m]$ многочлен $q_i$ имеет ту же степень, что и $p_i$.
+
+Значит, если для некоторого $i$ будет $p_i \not\equiv 0$, то и $q_i \not\equiv 0$. Следовательно, в левой части тождества (\ref{diffeq}) находится нетривиальная линейная комбинация квазиодночленов. Это противоречит индукционному предположению.\\
+
+\noindent \textbf{Теорема (Общее решение ЛОУ с постоянными коэффициентами).} Пусть $\lambda_1, \lambda_2, \ldots, \lambda_s \in \mathbb{C}$ --- характеристические числа уравнения (\ref{lodnpost}) кратностей $m_1, m_2, \ldots, m_s \in \mathbb{N}$. Тогда функции
+\begin{equation}
+    \begin{aligned}
+        &e^{\lambda_1 t}, te^{\lambda_1 t}, \ldots, t^{m_1 - 1}e^{\lambda_1 t}\\
+        &\ldots\\
+        &e^{\lambda_s t}, te^{\lambda_s t}, \ldots, t^{m_s - 1}e^{\lambda_s t}
+    \end{aligned} \label{fundsyst}
+\end{equation}
+образуют фундаментальную систему решений уравнения (\ref{lodnpost}).\\
+
+\noindent \textbf{Доказательство.} Указанные функции являются решениями (\ref{lodnpost}), а по лемме о линейной независимости квазиодночленов они линейно независимы. Так как сумма всех кратностей равна порядку уравнения, то эти функции образуют фундаментальную систему решений.

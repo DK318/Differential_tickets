@@ -1,0 +1,102 @@
+\textbf{Определение.} \textbf{Линейной системой дифференциальных уравнений с постоянными коэффициентами} называют линейную систему вида
+\begin{equation}
+    \dot{r} = Ar = q(t) \label{linpost}
+\end{equation}
+где $A \in M_n(\mathbb{C})$, $q \in C((a,b) \to \mathbb{C}^n)$.\\
+
+\noindent \textbf{Лемма.} Пусть $n, k \in \mathbb{N}$, $A \in M_n(\mathbb{C})$, $h_1, h_2, \ldots, h_k$ --- жорданова цепочка, соответствующая $\lambda \in spec\, A$. Тогда функции
+\begin{equation*}
+    \begin{aligned}
+        &\varphi_1(t) = e^{\lambda t}h_1\\
+        &\varphi_2(t) = e^{\lambda t}\left(\frac{t}{1!}h_1 + h_2\right)\\
+        &\ldots\\
+        &\varphi_k(t) = e^{\lambda t}\left(\frac{t^{k-1}}{(k-1)!}h_1 + \ldots + \frac{t}{1!}h_{k-1} + h_k\right)
+    \end{aligned}
+\end{equation*}
+являются решениями системы $\dot{r} = Ar$.\\
+
+\noindent \textbf{Доказательство.} Принимая во внимание определение жордановой цепочки, при $j \in [1 : k]$ имеем
+\begin{equation*}
+    \begin{aligned}
+        &A\varphi_j = e^{\lambda t}\sum_{m=1}^j \frac{t^{j-m}}{(j-m)!}Ah_m = e^{\lambda t} \left(\frac{t^{j-1}}{(j-1)!}\lambda h_1 + \sum_{m=2}^j \frac{t^{j-m}}{(j-m)!}(\lambda h_m + h_{m - 1}) \right) = \\
+        &= e^{\lambda t}\left(\lambda \sum_{m=1}^j \frac{t^{j - m}}{(j - m)!}h_m + \sum_{m = 2}^j \frac{t^{j-m}}{(j - m)!}h_{m-1} \right)
+    \end{aligned}
+\end{equation*}
+
+Это же выражение получается при дифференцировании вектор-функции $\varphi_j$. Значит, $\dot{\varphi}_j = A\varphi_j$, что и требовалось доказать.\\
+
+\noindent \textbf{Теорема (Случай жорданова базиса общего вида).} Пусть $A \in M_n(\mathbb{C})$, базис пространства $\mathbb{C}^n$ состоит из жордановых цепочек
+\begin{equation*}
+    \begin{aligned}
+        &\lambda_1 \sim h_1, h_2, \ldots, h_k\\
+        &\ldots\\
+        &\lambda_d \sim u_1, u_2, \ldots, u_m
+    \end{aligned}
+\end{equation*}
+соответствующих $\lambda_1, \ldots, \lambda_d \in spec\, A$. Тогда вектор-функции
+\begin{equation*}
+    \begin{aligned}
+        &\varphi_1(t) = e^{\lambda_1 t}h_1, \quad \ldots, \quad \varphi_k(t) = e^{\lambda_1 t}\left(\frac{t^{k-1}}{(k-1)!}h_1 + \ldots + \frac{t}{1!}h_{k-1} + h_k \right)\\
+        &\ldots\\
+        &\psi_1(t) = e^{\lambda_d t}u_1, \quad \ldots, \quad \psi_m(t) = e^{\lambda_d t}\left(\frac{t^{m-1}}{(m-1)!}u_1 + \ldots + \frac{t}{1!}u_{m-1} + u_m \right)
+    \end{aligned}
+\end{equation*}
+образуют фундаментальную систему решений системы $\dot{r} = Ar$.\\
+
+\noindent \textbf{Доказательство.} По вышедоказанной лемме каждая из вектор-функций
+\begin{equation*}
+    \varphi_1, \ldots, \varphi_k, \ldots, \psi_1, \ldots, \psi_m
+\end{equation*}
+является решением. Их вронскиан
+\begin{equation*}
+    W(0) = det(h_1, \ldots, h_k, \ldots, u_1, \ldots, u_m) \neq 0
+\end{equation*}
+Тогда вектор-функции $\{\varphi_1, \ldots, \varphi_k, \ldots, \psi_1, \ldots, \psi_m\}$ линейно независимы, а значит, образуют фундаментальную систему решений.\\
+
+\noindent \textbf{Определение.} \textbf{Матричной экспонентой} называется сумма ряда
+\begin{equation*}
+    e^{A} = \sum_{k = 0}^{\infty} \frac{A^k}{k!}
+\end{equation*}
+\\
+\noindent \textbf{Свойства матричной экспоненты.} Пусть $A$, $B$, $J$, $T \in M_n(\mathbb{C})$, $det\, T \neq 0$, $t \in \mathbb{R}$. Тогда
+\begin{enumerate}
+    \item ряд, определяющий $e^A$, сходится
+    \item если $AB = BA$, то $e^{A+B} = e^{A}e^{B}$
+    \item $\frac{d}{dt}e^{At} = Ae^{At}$
+    \item если $A = TJT^{-1}$, то $e^A = Te^JT^{-1}$
+    \item если $A = diag(A_1, A_2, \ldots, A_d)$, то $e^A = diag(e^{A_1}, e^{A_2}, \ldots, e^{A_d})$
+    \item если $J_s(\lambda)$ --- жорданова клетка размера $s$:
+    \begin{equation*}
+        J_s(\lambda) = \begin{pmatrix}
+            \lambda & 1 & 0 & \ldots & 0\\
+            0 & \lambda & 1 & \ldots & 0\\
+            0 & 0 & \lambda & \ldots & 0\\
+            \ldots\\
+            0 & 0 & 0 & \ldots & \lambda
+        \end{pmatrix}
+    \end{equation*}
+    то
+    \begin{equation*}
+        e^{J_s(\lambda)t} = \begin{pmatrix}
+        1 & t & \frac{t^2}{2!} & \ldots & \frac{t^{s-1}}{(s-1)!}\\
+        0 & 1 & t & \ldots & \frac{t^{s-2}}{(s-2)!}\\
+        0 & 0 & 1 & \ldots & \frac{t^{s-3}}{(s-3)!}\\
+        \ldots\\
+        0 & 0 & 0 & \ldots & 1
+        \end{pmatrix}
+    \end{equation*}
+\end{enumerate}
+\\
+\noindent \textbf{Теорема.} Пусть $A \in M_n(\mathbb{C})$. Тогда матрица $e^{At}$ является фундаментальной матрицей системы $\dot{r} = Ar$.\\
+
+\noindent \textbf{Доказательство.} По свойствам матричной экспоненты будет $\frac{d}{dt}e^{At} = Ae^{At}$. Следовательно, каждый столбец матрицы $e^{At}$ --- решение системы $\dot{r} = Ar$. Соответствующий вронскиан
+\begin{equation*}
+    W(0) = det\, e^{A\cdot 0} = det\, E_n = 1
+\end{equation*}
+где $E_n$ --- единичная матрица порядка $n$. Отсюда следует, что $e^{At}$ --- фундаментальная матрица.\\
+
+\noindent \textbf{Следствие.} Пусть $A \in M_n(\mathbb{C})$, $t_0 \in \mathbb{R}$, $r_0 \in \mathbb{C}^n$. Тогда решением задачи
+\begin{equation*}
+    \dot{r} = Ar, \quad r(t_0) = r_0
+\end{equation*}
+является вектор-функция $\varphi(t) = e^{A(t - t_0)}r_0$

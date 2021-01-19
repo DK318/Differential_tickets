@@ -1,0 +1,50 @@
+\textbf{Теорема (О системе, сравнимой с линейной).} Пусть $G = (a,b) \times \mathbb{R}_r^n$, $f \in C(G \to \mathbb{R}^n) \cap Lip_{r,loc}(G)$, функции $u,v \in C(a,b)$ таковы, что для любых $(t,r) \in G$
+\begin{equation*}
+    |f(t,r)| \le u(t)|r| + v(t)
+\end{equation*}
+Тогда каждое максимальное решение уравнения $\dot{r} = f(t,r)$ определено на $(a,b)$.\\
+
+\noindent \textbf{Доказательство.} По теореме о существовании и единственности максимального решения любая задача Коши с начальными данными $(t_0, r_0) \in G$ имеет единственное максимальное решение $\varphi$, заданное на некотором интервале $(\alpha, \beta)$. Докажем, что границы интервала $(\alpha, \beta)$ совпадают с границами интервала $(a,b)$. Пойдем от противного. Пусть, например, $\beta < b$. Принимая во внимание лемму о равносильном интегральном уравнении, при $t \in [t_0, \beta)$ находим
+\begin{equation*}
+    \begin{aligned}
+        &|\varphi(t)| = \left|r_0 + \int_{t_0}^t f(\tau, \varphi(\tau))d\tau \right| \le |r_0| + \int_{t_0}^t |f(\tau, \varphi(\tau))|d\tau \le\\
+        &\le |r_0| + \int_{t_0}^t |u(\tau)||\varphi(\tau)|d\tau + \int_{t_0}^t |v(\tau)|d\tau
+    \end{aligned}
+\end{equation*}
+
+Из непрерывности функций $u$ и $v$ вытекает их ограниченность на отрезке $[t_0, \beta]$. Следовательно, найдутся такие числа $\lambda, \mu \ge 0$, что при $t \in [t_0, \beta)$
+\begin{equation*}
+    |\varphi(t)| \le \lambda + \mu \int_{t_0}^t |\varphi(s)|ds
+\end{equation*}
+Тогда по лемме Гронуолла
+\begin{equation*}
+    |\varphi(t)| \le \lambda e^{\mu (t - t_0)} \le L
+\end{equation*}
+где $L = \lambda e^{\mu (\beta - t_0)}$. Отсюда следует, что график решения $\varphi$ не покидает компакт
+\begin{equation*}
+    K = \left\{(t,r) \in G\, |\, t \in [t_0, \beta],\, |r| \le L \right\} \subset G
+\end{equation*}
+при $t \in [t_0, \beta)$, что противоречит теореме о выходе интегральной кривой за пределы компакта.\\
+
+\noindent \textbf{Определение.} \textbf{Линейной системой дифференциальных уравнений} называют систему вида
+\begin{equation}
+    \dot{r} = P(t)r + q(t) \label{lnsu}
+\end{equation}
+где $P \in M_n(C(a,b))$, $q \in C((a,b) \to \mathbb{R}^n)$.\\
+
+\noindent \textbf{Теорема (существование и единственность максимального решения ЛС).} Пусть $P \in M_n(C(a,b))$, $q \in C((a,b) \to \mathbb{R}^n)$, $t_0 \in (a,b)$, $r_0 \in \mathbb{R}^n$. Тогда максимальное решение задачи Коши
+\begin{equation}
+    \begin{cases}
+    \dot{r} = P(t)r + q(t)\\
+    r(t_0) = r_0
+    \end{cases} \label{zkls}
+\end{equation}
+существует, единственно и определено на интервале $(a,b)$.\\
+
+\noindent \textbf{Доказательство.} Заметим, что правая часть системы $f(t,r) = P(t)r + q(t)$ и ее производная $f'_r = P(t)$ непрерывны в области $(a,b) \times \mathbb{R}^n$. Тогда существует единственное максимальное решение задачи (\ref{zkls}).
+
+Имеем
+\begin{equation*}
+    |f(t,r)| \le |P(t)r| + |q(t)| \le n|P(t)||r| + |q(t)|
+\end{equation*}
+Так как функции $u(t) = n|P(t)|$ и $v(t) = |q(t)|$ непрерывны на $(a,b)$, то по признаку продолжимости системы, сравнимой с линейной, решение задачи (\ref{zkls}) продолжимо на интервал $(a,b)$.

@@ -1,0 +1,28 @@
+\textbf{Теорема (Пикар).} Пусть $G \subset \mathbb{R}_{t,r}^{n+1}$ --- область, $f \in C(G \to \mathbb{R}^n) \cap Lip_{r,loc}(G)$, $(t_0, r_0) \in G$. Тогда
+\begin{enumerate}
+    \item на отрезке Пеано существует решение задачи
+    \begin{equation}
+        \dot{r} = f(t,r), \quad r(t_0) = r_0 \label{zkpeano3}
+    \end{equation}
+    \item если $\psi_1$ и $\psi_2$ --- решения (\ref{zkpeano3}) на $(a,b)$, то $\psi_1 \equiv \psi_2$ на $(a,b)$
+\end{enumerate}
+
+\noindent \textbf{Следствие (Теорема Пикара с простыми условиями).} Пусть $G \subset \mathbb{R}_{t,r}^{n+1}$ --- область, $f \in C(G \to \mathbb{R}^n)$, $f'_r \in M_n(C(G))$, $(t_0, r_0) \in G$. Тогда
+\begin{enumerate}
+    \item на отрезке Пеано $[t_0 - h, t_0 + h]$ существует решение $\varphi$ ЗК
+    \item если $\psi_1$ и $\psi_2$ --- решения этой задачи на $(a,b)$, то $\psi_1 \equiv \psi_2$ на $(a,b)$
+    \item пусть $\Pi$ --- параллелепипед, по которому строится отрезок Пеано,
+    \begin{equation*}
+        M = \max_{(t,r) \in \Pi} |f(t,r)|, \quad M_1 = \max_{(t,r) \in \Pi} |f'_r(t,r)|
+    \end{equation*}
+    $\varphi_m$ --- $m$-е приближение Пикара, тогда для любого $t \in [t_0 - h, t_0 + h]$
+    \begin{equation*}
+        |\varphi(t) - \varphi_m(t)| \le \frac{M(nM_1)^mh^{m+1}}{(m+1)!}
+    \end{equation*}
+\end{enumerate}
+\textbf{Доказательство.} Пункты (1) и (2) следуют из леммы о локальном условии Липшица и теоремы Пикара. Для доказательства пункта (3) сделаем предельный переход в неравенстве (\ref{indh}) при $k \to \infty$. Тогда
+\begin{equation*}
+    |\varphi(t) - \varphi_m(t)| \le \frac{ML^mh^{m+1}}{(m+1)!}
+\end{equation*}
+По лемме о локальном условии Липшица в качестве $L$ можно взять $nM_1$.
+

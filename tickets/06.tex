@@ -1,0 +1,40 @@
+\textbf{Определение.} Функция $f:\mathbb{R}^m \to \mathbb{R}^n$ удовлетворяет \textbf{условию Липшица} на множестве $D$, если найдется такое число $L$ (\textbf{константа Липшица}), что для любых точек $r_1, r_2 \in D$ выполнено
+\begin{equation*}
+    |f(r_2) - f(r_1)| \le L|r_2 - r_1|
+\end{equation*}
+
+\noindent \textbf{Определение.} Функция $f: \mathbb{R}_{t,r}^{m} \to \mathbb{R}^n$ удовлетворяет \textbf{условию Липшица по $r$ (равномерно по $t$)} на множестве $D$, если найдется такое число $L$, что для любых точек $(t,r_1), (t,r_2) \in D$ справедливо неравенство \begin{equation*}
+    |f(t,r_2) - f(t,r_1)| \le L|r_2 - r_1|
+\end{equation*}
+Обозначается как $f \in Lip_r(D)$.\\
+
+\noindent \textbf{Определение.} Функция $f:\mathbb{R}_{t,r}^{m} \to \mathbb{R}^n$ удовлетворяет \textbf{условию Липшица} по $r$ \textbf{локально} в области $G$, если для любой точки $(t_0, r_0) \in G$ можно указать ее окрестность $U = U(t_0, r_0)$, такую что $f \in Lip_r(U)$. Обозначается как $f \in Lip_{r,loc}(G)$.\\
+
+\noindent \textbf{Лемма.} Пусть $G \subset \mathbb{R}_{t,r}^{n + 1}$ --- область, $f \in C(G \to R^m)$, $f'_r \in M_{m,n}(C(G))$. Тогда $f \in Lip_{r,loc}(G)$.
+
+Кроме того, если $K \subset G$ --- выпуклый компакт,
+\begin{equation*}
+    M_1 = \max_{(t,r) \in k} |f'_r(t,r)|
+\end{equation*}
+то для любых $(t,r_1), (t,r_2) \in K$
+\begin{equation*}
+    |f(t,r_2) - f(t, r_1)| \le nM_1|r_2 - r_1|
+\end{equation*}
+\textbf{Доказательство.} Рассмотрим произвольные точки $(t,r_1), (t,r_2) \in K$. В силу выпуклости $K$ будет $(t, r + s(r_2 - r_1)) \in K$ при $s \in [0,1]$. Положим
+\begin{equation*}
+    g(s) = f(t, r_1 + s(r_2 - r_1))
+\end{equation*}
+Тогда
+\begin{equation*}
+    \begin{aligned}
+        &f(t,r_2) - f(t,r_1) = g(1) - g(0) = \int_0^1 g'(s)ds = \int_0^1 f'_r\cdot r'_sds =\\
+        &= \int_0^1 f'_r(t, r_1 + s(r_2 - r_1))\cdot(r_2 - r_1)ds
+    \end{aligned}
+\end{equation*}
+Принимая во внимания леммы о нормах, получаем
+\begin{equation*}
+    |f(t,r_2) - f(t,r_1)| \le \int_0^1 n|f'_r(t,r_1 + s(r_2 - r_1))||r_2 - r_1|ds \le nM_1|r_2 - r_1|
+\end{equation*}
+Из этого неравенства можно сделать вывод, что $f \in Lip_r(K)$.
+
+Возьмем произвольную точку $(t_0, r_0) \in G$ и построим замкнутый параллелепипед $B \subset G$ с центром в этой точке. По доказанному $f \in Lip_r(B)$. Так как точка выбрана произвольно, то из этого следует $f \in Lip_{r,loc}(G)$ по определению.

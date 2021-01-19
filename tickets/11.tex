@@ -1,0 +1,34 @@
+\textbf{Определение.} Решение $\varphi$ уравнения $\dot{r} = f(t,r)$ на промежутке $\langle a,b \rangle$ называется \textbf{продолжимым}, если существует решение $\psi$ того же уравнения на промежутке $\langle A, B \rangle$, причем $\langle a,b \rangle \subset \langle A,B \rangle$ и $\varphi \equiv \psi$ на $\langle a,b \rangle$. Решение $\psi$ называют \textbf{продолжением} решения $\varphi$.\\
+
+\noindent \textbf{Определение.} Если для решения $\varphi$ уравнения $\dot{r} = f(t,r)$ не существует продолжения, то будем называть функцию $\varphi$ \textbf{максимальным решением}.\\
+
+\noindent \textbf{Теорема (Критерий продолжимости).} Пусть $G \subset \mathbb{R}_{t,r}^{n+1}$ --- область, $f \in C(G \to \mathbb{R}^{n})$. Тогда решение $\varphi$ уравнения $\dot{r} = f(t,r)$ на промежутке $[a,b)$ продолжимо вправо, если и только если существует предел $\varphi(b - 0) = \widetilde{r}$ и $(b, \widetilde{r}) \in G$.\\
+
+\noindent \textbf{Доказательство.} Предположим, что $\psi$ --- продолжение на $[a,c\rangle$ решения $\varphi$, $b \in [a,c\rangle$. Тогда в силу непрерывности $\psi$
+\begin{equation*}
+    \varphi(b-0) = \psi(b-0) = \psi(b)
+\end{equation*}
+Поскольку $b \in [a,c\rangle$, то из определения решения следует $(b, \psi(b)) \in G$.
+
+Докажем обратное утверждение. Доопределим функцию $\varphi$ по непрерывности на промежуток $[a,b]$. При $t,t_1 \in [a,b)$
+\begin{equation*}
+    \varphi(t) - \varphi(t_1) = \int_{t_1}^t \varphi'(\tau)d\tau = \int_{t_1}^t f(\tau, \varphi(\tau))d\tau
+\end{equation*}
+Переходя к пределу при $t_1 \to t_0$, получаем
+\begin{equation*}
+    \varphi(t) = \widetilde{r} + \int_{t_0}^t f(\tau, \varphi(\tau))d\tau
+\end{equation*}
+Тогда по лемме о равносильном интегральном уравнении функция $\varphi$ --- решение задачи
+\begin{equation}
+    \dot{r} = f(t,r), \quad r(b) = \widetilde{r} \label{zktilde}
+\end{equation}
+
+По теореме Пеано существует ее решение $\chi$ на некотором отрезке $[b-h, b+h]$. Положим
+\begin{equation*}
+    \psi(t) = \begin{cases}
+    \varphi(t), t \in [a,b)\\
+    \chi(t), t \in [b, b + h]
+    \end{cases}
+\end{equation*}
+
+По лемме о гладкой стыковке решений функция $\psi$ --- решение задачи (\ref{zktilde}) на $[a,b+h]$, следовательно, $\psi$ --- продолжение решения $\varphi$ вправо за точку $b$.

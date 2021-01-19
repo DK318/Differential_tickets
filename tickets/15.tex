@@ -1,0 +1,70 @@
+\textbf{Определение.} Если $q \equiv 0$ на $(a,b)$, то система (\ref{lnsu}), то есть
+\begin{equation}
+    \dot{r} = P(t)r \label{losu}
+\end{equation}
+называется \textbf{однородной}, в противном случае \textbf{неоднородной}.\\
+
+\noindent \textbf{Определение.} \textbf{Определителем Вронского (вронскианом)} вектор-функций $\{r_k\}_{k=1}^n$, где $r_k=(x_{k1}, x_{k2}, \ldots, x_{kn})^T$, называют определитель
+\begin{equation*}
+    W(t) = det(r_1(t),r_2(t),\ldots, r_n(t)) = \begin{vmatrix}
+    x_{11}(t) & x_{21}(t) & \ldots & x_{n1}(t)\\
+    x_{12}(t) & x_{22}(t) & \ldots & x_{n2}(t)\\
+    \ldots\\
+    x_{1n}(t) & x_{2n}(t) & \ldots & x_{nn}(t)
+    \end{vmatrix}
+\end{equation*}
+\\
+\noindent \textbf{Теорема (формула Остроградского-Лиувилля для решений ЛОС).} Пусть $t, t_0 \in (a,b)$, $P \in M_n(C(a,b))$, $r_1, r_2, \ldots, r_n$ --- решения системы (\ref{losu}). Тогда их вронскиан
+\begin{equation*}
+    W(t) = W(t_0)\exp \int_{t_0}^t trP(\tau)d\tau
+\end{equation*}
+\textbf{Доказательство.} Пусть $X$ --- матрица со столбцами $r_1, r_2, \ldots, r_n$, а $R_k$ --- ее $k$-ая строка. Используя формулу полного разложения определителя, нетрудно убедиться, что
+\begin{equation*}
+    \dot{W} = det\begin{pmatrix}
+    \dot{R}_1\\
+    R_2\\
+    \ldots\\
+    R_n
+    \end{pmatrix} + det\begin{pmatrix}
+    R_1\\
+    \dot{R}_2\\
+    \ldots\\
+    R_n
+    \end{pmatrix} + \ldots + det\begin{pmatrix}
+    R_1\\
+    R_2\\
+    \ldots\\
+    \dot{R}_n
+    \end{pmatrix}
+\end{equation*}
+
+Так как
+\begin{equation*}
+    \dot{X} = (\dot{r}_1, \dot{r}_2, \ldots, \dot{r}_n) = (Pr_1, Pr_2, \ldots, Pr_n) = PX
+\end{equation*}
+то $k$-ая строка матрицы $\dot{X}$ совпадает с $k$-ой строкой матрицы $PX$, то есть
+\begin{equation*}
+    \dot{R}_k = \sum_{j=1}^n p_{kj}R_j
+\end{equation*}
+где $p_{kj}$ --- элемент матрицы $P$ в $k$-ой строке и $j$-ом столбце.
+
+Подставляя выражение для $\dot{R}_k$ в формулу для $\dot{W}$ и используя свойства определителя, находим
+\begin{equation*}
+    \dot{W} = p_{11}det\begin{pmatrix}
+    R_1\\
+    R_2\\
+    \ldots\\
+    R_n
+    \end{pmatrix} + p_{22}det\begin{pmatrix}
+    R_1\\
+    R_2\\
+    \ldots\\
+    R_n
+    \end{pmatrix} + \ldots + p_{nn}det\begin{pmatrix}
+    R_1\\
+    R_2\\
+    \ldots\\
+    R_n
+    \end{pmatrix} = W\,trP
+\end{equation*}
+Интегрируя полученное уравнение, приходим к требуемой формуле.
