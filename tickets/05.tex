@@ -9,9 +9,9 @@
 
 Построим последовательность ломаных Эйлера $\{E_N\}_{N=1}^{\infty}$. По свойствам ломаной Эйлера $|E_N(t)| \le Mh \le b$. Значит, последовательность $\{E_N\}$ равномерно ограничена.
 
-Пусть $\varepsilon > 0$, $\delta = \frac{\varepsilon}{M}$. При $t_1, t_2 \in [0, h]$, $t_1 < t_2$, $|t_2 - t_1| < \delta$. По формуле Ньютона- Лейбница находим
+Пусть $\varepsilon > 0$, $\delta = \frac{\varepsilon}{M}$. При $t_1, t_2 \in [0, h]$, $t_1 < t_2$, $|t_2 - t_1| < \delta$. По формуле Ньютона-Лейбница находим
 \begin{equation*}
-    |E_N(t_2) - E_N(t_1)| = \left|\int_{t_1}^{t_2} \dot{E}_N(\tau)d\tau\right| \le \int_{t_1}^{t_2} \dot{E}_N(\tau)d\tau
+    |E_N(t_2) - E_N(t_1)| = \left|\int_{t_1}^{t_2} \dot{E}_N(\tau)d\tau\right| \le \int_{t_1}^{t_2} |\dot{E}_N(\tau)|d\tau
 \end{equation*}
 Из определения ломаной Эйлера следует, что $|\dot{E}_N| \le M$ в точках, где производная определена. Тогда
 \begin{equation*}
