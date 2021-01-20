@@ -15,68 +15,7 @@
     \item неустойчиво, если найдется $\lambda \in spec\, f'(0)$, для которого $Re\, \lambda > 0$
 \end{enumerate}
 
-\noindent \textbf{Доказательство.} В окрестности $r = 0$ систему $\dot{r} = f(r)$ можно записать в виде
-\begin{equation*}
-    \dot{r} = Ar + q(r)
-\end{equation*}
-где $q(r) = o(|r|)$ при $|r| \to 0$. Решение задачи Коши $\dot{r} = f(r),\, r(0) = r_0$ в силу предположения в некоторой окрестности $r_0$ определено для всех $t > 0$. Его можно записать в виде
-\begin{equation*}
-    r(t) = e^{At}\cdot r_0 + \int_0^t e^{A(t-\tau)}\cdot q(r(\tau))d\tau
-\end{equation*}
-
-Если $Re\, \lambda < 0$ для любого $\lambda \in spec\, f'(0)$, то найдется $\mu > 0$ такое, что $Re\, \lambda < -2\mu < 0$. Решение задачи Коши для $\dot{r} = Ar,\, r(0) = r_0$ имеет вид
-\begin{equation*}
-    r = e^{At}\cdot r_0
-\end{equation*}
-
-Покажем, что найдется такое $M > 0$, что норма матричной экспоненты
-\begin{equation*}
-    |e^{At}| \le Me^{-\mu t}, \quad \forall t \ge 0
-\end{equation*}
-Каждый элемент $a_{ij}(t)$ матрицы $e^{At}$ является конечной суммой квазимногочленов
-\begin{equation*}
-    a_{ij}(t) = \sum_{k=1}^m P_k^{(i,j)}(t) e^{\lambda_kt}
-\end{equation*}
-где $P_k^{(i,j)}(t)$ --- многочлены, $m$ --- количество собственных чисел. Всегда найдется такое число $c_{ij} > 0$, что для всех $k \in [1:m]$
-\begin{equation*}
-    |P_k^{(i,j)}(t)e^{\lambda_kt}| \le c_{ij}e^{-\mu t}, \quad \forall t > 0
-\end{equation*}
-Тогда
-\begin{equation*}
-    \begin{aligned}
-        &|r(t)| \le |e^{At}| |r_0| = |r_0| \sqrt{\sum_{i,j=1}^n |a_{ij}(t)|^2} \le\\
-        &\le |r_0| e^{-\mu t}m \sqrt{\sum_{i,j=1}^n |c_{ij}|^2} = Me^{-\mu t} |r_0|
-    \end{aligned}
-\end{equation*}
-
-Так как $q(r) = o(|r|)$ при $|r| \to 0$, то для любого $\varepsilon > 0$ найдется $\delta = \delta(\varepsilon) > 0$ такое, что из $|r| < \delta$ следует $|q(r)| \le \varepsilon|r|$. Тогда при всех $t > 0$
-\begin{equation*}
-    \begin{aligned}
-        |r(t)| &\le |e^{At} r_0| + \int_0^t |e^{A(t - \tau)} q(r(\tau))|d\tau \le\\
-        &\le |e^{At}| |r_0| + \int_0^t |e^{A(t - \tau)}| |q(r(\tau))|d\tau \le\\
-        &\le Me^{-\mu t} |r_0| + \varepsilon M\int_0^t e^{-\mu (t - \tau)}|r(\tau)|d\tau
-    \end{aligned}
-\end{equation*}
-
-Если положить $u(t) = e^{\mu t}|r(t)|$, то отсюда находим, что
-\begin{equation*}
-    u(t) \le M |r_0| + \varepsilon M\int_0^t u(\tau)d\tau
-\end{equation*}
-Функция $u(t)$ удовлетворяет условиям леммы Гронуолла. Значит, что при всех $t > 0$
-\begin{equation*}
-    u(t) \le M |r_0|e^{\varepsilon Mt}
-\end{equation*}
-Заменяя $u(t)$ на $e^{\mu t} |r(t)|$, получаем оценку
-\begin{equation*}
-    |r(t)| \le M |r_0|e^{-(\mu - \varepsilon M)t}
-\end{equation*}
-Из полученной оценки следует, что при достаточно малых $\varepsilon > 0$
-\begin{equation*}
-    r(t) \to 0, \quad t \to +\infty
-\end{equation*}
-если фиксировать $\varepsilon > 0$, положив, например, $\varepsilon = \frac{\mu}{2M}$. Кроме того, взяв $\delta = \delta(\varepsilon) = \frac{\varepsilon}{M}$, из оценки получаем, что $|r(t)| < \varepsilon$ при $|r_0| < \delta$ для всех $t > 0$.
-
-Второй пункт теоремы следует непосредственно из доказательства теоремы об устойчивости ЛОС с постоянными коэффициентами (мб кукарек, хз как доказать).\\
+\noindent \textbf{Доказательство.} См. конспект, на консультации Бабушкин сказал, что на лекции теорема была без док-ва ибо он сам не помнит, как доказывать.\\
 
 \noindent \textbf{Определение.} Пусть $\Omega \subset \mathbb{R}^n$ --- окрестность нуля. Функция $V \in C^1(\Omega)$ называется \textbf{функцией Ляпунова} системы $\dot{r} = f(r)$, если
 \begin{itemize}
