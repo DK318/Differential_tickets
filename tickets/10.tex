@@ -1,11 +1,44 @@
-\textbf{Теорема (Пикар).} Пусть $G \subset \mathbb{R}_{t,r}^{n+1}$ --- область, $f \in C(G \to \mathbb{R}^n) \cap Lip_{r,loc}(G)$, $(t_0, r_0) \in G$. Тогда
+\textbf{Определение.} Определим отображение $\Lambda_n y$ формулой
+\begin{equation*}
+    \Lambda_n y = (y, \dot{y},\ldots, y^{(n-1)})^T
+\end{equation*}
+
+\noindent \textbf{Теорема (Существование и единственность решения ЗК для уравнения высшего порядка)}. Пусть $G \subset \mathbb{R}_{t, y, y', \ldots, y^{(n-1)}}^{n + 1}$ --- область, $f \in C(G) \cap Lip_{(y,y',\ldots,y^{(n-1)}),loc}(G)$, $(t_0, y_0, y'_0, \ldots, y^{(n-1)}_0) \in G$. Тогда
 \begin{enumerate}
-    \item на отрезке Пеано существует решение задачи
+    \item в некоторой окрестности точки $t_0$ существует решение задачи
     \begin{equation}
-        \dot{r} = f(t,r), \quad r(t_0) = r_0 \label{zkpeano3}
+        \begin{cases}
+            y^{(n)} = f(t, y, \dot{y}, \ldots, y^{(n-1)})\\
+            y(t_0) = y_0,\,\dot{y}(t_0) = y'_0, \ldots, y^{(n-1)}(t_0) = y_0^{(n-1)}
+        \end{cases} \label{vish}
     \end{equation}
-    \item если $\psi_1$ и $\psi_2$ --- решения (\ref{zkpeano3}) на $(a,b)$, то $\psi_1 \equiv \psi_2$ на $(a,b)$
+    \item если $\psi_1$ и $\psi_2$ --- решения (\ref{vish}) на $(a,b)$, то $\psi_1 \equiv \psi_2$ на $(a,b)$
 \end{enumerate}
+\noindent \textbf{Доказательство.} Пусть $y$ --- решение (\ref{vish}) на $(a,b)$. По лемме о равносильной системе вектор-функция $\Lambda_n y$ --- решение ЗК для равносильной системы
+\begin{equation}
+    \begin{pmatrix}
+    \dot{y}_1\\
+    \ldots\\
+    \dot{y}_{n-1}\\
+    \dot{y}_n
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    y_2\\
+    \ldots\\
+    y_n\\
+    f(t, y_1, y_2, \ldots, y_n)
+    \end{pmatrix}
+    \label{ravnsystcyka}
+\end{equation}
+с начальными условиями
+\begin{equation}
+    y_1(t_0) = y_0,\, y_2(t_0) = y'_0,\ldots, y_n(t_0) = y_0^{(n-1)} \label{nach}
+\end{equation}
+
+Правая часть каждого уравнения системы (\ref{ravnsystcyka}) непрерывна и удовлетворяет условию Липшица локально по переменным $y, \dot{y},\ldots, y^{(n-1)}$ в области $G$. Тогда по теореме Пикара соответствующая задача Коши не может иметь более одного решения на $(a,b)$, а значит, не может быть более одного решения и у задачи (\ref{vish}). Тем самым доказан пункт (2).
+
+Установим справедливость пункта (1). Из теоремы Пикара следует существование в некоторой окрестности точки $t_0$ решения $r = (y_1, \ldots, y_n)$ системы (\ref{ravnsystcyka}) с начальными условиями (\ref{nach}). По лемме о равносильной системе функция $y_1$ --- решение задачи (\ref{vish}) в той же окрестности.\\
 
 \noindent \textbf{Следствие (Теорема Пикара с простыми условиями).} Пусть $G \subset \mathbb{R}_{t,r}^{n+1}$ --- область, $f \in C(G \to \mathbb{R}^n)$, $f'_r \in M_n(C(G))$, $(t_0, r_0) \in G$. Тогда
 \begin{enumerate}
